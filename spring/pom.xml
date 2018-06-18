@@ -5,20 +5,22 @@
 	<groupId>com.hsun</groupId>
 	<artifactId>spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<spring.version>5.0.7.RELEASE</spring.version>
 	</properties>
+
 	<dependencyManagement>
 		<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-	</dependencies>
+			<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+		</dependencies>
 	</dependencyManagement>
 	
 	<build>
@@ -34,4 +36,7 @@
 			</plugin>
 		</plugins>
 	</build>
+	<modules>
+		<module>spring-01-IOC</module>
+	</modules>
 </project>
