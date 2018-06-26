@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+		
+		<context:property-placeholder location="classpath:server.properties" ignore-unresolvable="true"/>
+		<bean id="jAXRSServerFactoryBean" class="org.apache.cxf.jaxrs.JAXRSServerFactoryBean">
+			<property name="address" value="${server.address}"></property>
+		</bean>
+		
+		<bean id="singletonResourceProvider" class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+			<constructor-arg ref="studentService"/>
+		</bean>
+		
+		<bean id="jacksonJsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"></bean>
+
+</beans>
